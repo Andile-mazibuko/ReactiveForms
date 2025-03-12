@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { FormGroup,FormBuilder,Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -34,5 +34,36 @@ export class AppComponent {
 
     });
     
+    
+  }
+
+  // this method will return the current state of our phoneNumbers should we need to add or remove
+  get getPhoneNumbers(): FormArray
+  {
+    return this.userForm.get('phoneNumbers') as FormArray;
+  }
+
+  //Add phoneNumber
+  addPhoneNumber(): void
+  {
+    //new field on our form
+    this.getPhoneNumbers.push(this.formBuilder.control('',Validators.required));
+   
+  }
+
+  //Remove the selected field from our form
+  removePhoneNumber(index: number): void
+  {
+    this.getPhoneNumbers.removeAt(index);
+  }
+
+  onSubmit(): void
+  {
+    if(this.userForm.valid){
+      console.log(this.userForm.value);
+    }else 
+    {
+      console.log('Invalid form');
+    }
   }
 }
