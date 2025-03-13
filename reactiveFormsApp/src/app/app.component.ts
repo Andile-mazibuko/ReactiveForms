@@ -8,7 +8,7 @@ import { FormGroup,FormBuilder,Validators, FormArray } from '@angular/forms';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  userForm: FormGroup;
+  userForm: FormGroup;//Declare for easier accessebility
   title: string = 'Rective forms';
 
   constructor(private formBuilder: FormBuilder)
