@@ -17,19 +17,19 @@ export class AppComponent {
     //Creates a form group with none nullable inputs
     this.userForm = this.formBuilder.group({
       name: ['',Validators.required],
-      Email: ['', [Validators.required, Validators.email ]],
+      email: ['', [Validators.required, Validators.email ]],
       
       //Nested groups
       address: this.formBuilder.group({
-        province: ['',Validators.required],
-        postCode: ['', Validators.required]//ToDo: set length and accept number only
+        province: ['',Validators.maxLength(12)],
+        postCode: ['', Validators.max(12)]//ToDo: set length and accept number only
       
       }),
 
       //FormArray
       // .array method only accepts the square brackets since it's a array
       phoneNumbers: this.formBuilder.array([
-        this.formBuilder.control('',Validators.required)//no square brackets here or curly brackets
+        this.formBuilder.control('',Validators.max(2))//no square brackets here or curly brackets
       ])
 
     });
@@ -37,7 +37,7 @@ export class AppComponent {
     
   }
 
-  // this method will return the current state of our phoneNumbers should we need to add or remove
+  // this method will return the current state of our phoneNumbers array should we need to add or remove
   get getPhoneNumbers(): FormArray
   {
     return this.userForm.get('phoneNumbers') as FormArray;
