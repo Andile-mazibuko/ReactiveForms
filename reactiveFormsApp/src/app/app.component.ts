@@ -21,8 +21,8 @@ export class AppComponent {
       
       //Nested groups
       address: this.formBuilder.group({
-        province: ['',Validators.maxLength(12)],
-        postCode: ['', Validators.max(12)]//ToDo: set length and accept number only
+        province: ['',Validators.required],
+        postCode: ['', Validators.required]//ToDo: set length and accept number only
       
       }),
 

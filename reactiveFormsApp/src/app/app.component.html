@@ -8,6 +8,19 @@
     <label for="email">Email:</label>
     <input type="email" id="email" placeholder="Email" formControlName="email">
   </div>
+  
+  <!--Nested form group-->
+  <div formGroupName="address">
+    <div>
+      <label for="province">Province:</label>
+      <input type="text" id="province" formControlName="province" placeholder="Province">
+    </div>
+    <div>
+      <label for="postalCode">Area Code:</label>
+      <input type="text" id="postalCode" formControlName="postCode" placeholder="Area Code">
+    </div>
+  </div>
+
   <button type="submit"> Submit </button>
 
 </form>
