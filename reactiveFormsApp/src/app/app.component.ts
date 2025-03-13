@@ -29,7 +29,7 @@ export class AppComponent {
       //FormArray
       // .array method only accepts the square brackets since it's a array
       phoneNumbers: this.formBuilder.array([
-        this.formBuilder.control('',Validators.max(2))//no square brackets here or curly brackets
+        this.formBuilder.control('',Validators.required)//no square brackets here or curly brackets
       ])
 
     });

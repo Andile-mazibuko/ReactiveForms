@@ -4,6 +4,7 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,NgFor
   ],
   providers: [
     provideClientHydration(withEventReplay())

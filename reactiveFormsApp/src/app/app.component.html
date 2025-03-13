@@ -20,6 +20,20 @@
       <input type="text" id="postalCode" formControlName="postCode" placeholder="Area Code">
     </div>
   </div>
+  
+  <!--Dynamic form -->
+  <div formArrayName="phoneNumbers">
+    <!--We call the method name here that returns the current state of our array-->
+    <div *ngFor="let phoneControl of getPhoneNumbers.controls; let i = index">
+      <label for="phone">Tel. No {{ i + 1 }}</label>
+      
+      <!--We use formCotrol in squre brackects here since it's dynamic binding-->
+      <input type="text" id="phone" [formControlName]="i" placeholder="Phone Number">
+      <button (click)="removePhoneNumber(i)">Remove Number</button>
+    </div>
+    <button (click)="addPhoneNumber()">Add</button>
+  </div>
+
 
   <button type="submit"> Submit </button>
 
